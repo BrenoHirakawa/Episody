@@ -7,7 +7,8 @@ import AuthRoutes from './auth.routes';
 import AppRoutes from './app.routes';
 
 function Routes(){
-    // const {signed} = useContext(AuthContext);
+    //identifica se foi logado corretamente ou não!
+    // const {signed} = useContext(AuthContext); 
     const signed = true;
     const loading = false;
 
