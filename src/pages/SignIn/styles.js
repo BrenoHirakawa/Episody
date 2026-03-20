@@ -52,14 +52,14 @@ export const Input = styled.TextInput`
     color: #ffffff;
 `;
 
+// Botão de Login
 export const SubmitButton = styled.TouchableOpacity`
     background-color: #7B2CBF;
     width: 207px;
     height: 56px; 
     border-radius: 20px;
+    justify-content: center;
     align-items: center;
-
-    padding: 10px;
 `;
 
 export const SubmitText = styled.Text`
@@ -67,6 +67,7 @@ export const SubmitText = styled.Text`
     font-weight: 600;
     font-size: 24px;
 `;
+
 
 export const Link = styled.TouchableOpacity`
 `;

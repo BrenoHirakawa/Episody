@@ -8,8 +8,8 @@ import AppRoutes from './app.routes';
 
 function Routes(){
     //identifica se foi logado corretamente ou não!
-    // const {signed} = useContext(AuthContext); 
-    const signed = true;
+    const {signed} = useContext(AuthContext); 
+    // const signed = true;
     const loading = false;
 
     return(
