@@ -48,9 +48,9 @@ function AuthProvider({ children }){
     setLoadingAuth(true);
 
     try{
-      const response = await api.post('/users', {
-       name: nome,
-       password: password,
+      const response = await api.post('/user', {
+       nome: nome,
+       senha: password,
        email: email,
       })
       setLoadingAuth(false);
@@ -68,9 +68,9 @@ function AuthProvider({ children }){
     setLoadingAuth(true);
 
     try{
-      const response = await api.post('/login', {
+      const response = await api.post('/session', {
         email: email,
-        password: password
+        senha: password
       })
 
       const { id, name, token } = response.data;
@@ -95,7 +95,7 @@ function AuthProvider({ children }){
       setLoadingAuth(false);
 
     }catch(err){
-      console.log("ERRO AO LOGAR ", err);
+      console.log("ERRO AO LOGAR ", err.response?.data);
       setLoadingAuth(false);
     }
 

@@ -204,3 +204,27 @@ export const EmptySubText = styled.Text`
   text-align: center;
   padding-horizontal: 40px;
 `;
+
+export const ButtonsWrapper = styled.View`
+    flex-direction: row;
+    gap: 10px;
+    padding: 15px
+`;
+
+export const DropDown = styled.TouchableOpacity`
+  border-width: 1px;
+  border-color: #7B2CBF;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+`;
+
+export const ButtonList = styled.TouchableOpacity`
+  border-width: 1px;
+  border-color: #7B2CBF;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+`;
+
+export const ButtonText = styled.Text`
+  color: #A0A0B2;
+`;
