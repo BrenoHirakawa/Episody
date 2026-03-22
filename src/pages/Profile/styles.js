@@ -94,3 +94,43 @@ export const ExitButtonText = styled.Text`
     font-weight: 600;
     font-size: 24px;
 `;
+
+//-> Foto do user
+
+export const AvatarButton = styled.TouchableOpacity`
+  height: 160px;
+  width: 160px;
+  border-radius: 18px;
+  overflow: hidden;
+`;
+
+export const Avatar = styled.Image`
+  height: 160px;
+  width: 160px;
+  border-radius: 18px;
+`;
+
+// Fallback quando não há foto — exibe a inicial do nome com fundo roxo
+export const AvatarFallback = styled.View`
+  height: 160px;
+  width: 160px;
+  border-radius: 200px;
+  border-width: 3px;
+  border-color: #D9D9D9;
+  background-color: #7B2CBF;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const AvatarFallbackText = styled.Text`
+  color: #F5F5F5;
+  font-size: 50px;
+  font-weight: 700;
+`;
+
+export const SubmitText = styled.Text`
+    color: #F5F5F5;
+    font-weight: 600;
+    font-size: 24px;
+`;
+

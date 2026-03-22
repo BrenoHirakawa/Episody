@@ -7,77 +7,71 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const AuthContext = createContext({});
 
-function AuthProvider({ children }){
-  const [user, setUser] = useState(null); 
+function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
   const [loadingAuth, setLoadingAuth] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const navigation = useNavigation();
 
-
   useEffect(() => {
-    async function loadStorage(){
+    async function loadStorage() {
       const storageUser = await AsyncStorage.getItem('@finToken');
 
-      if(storageUser){
-
-        const response = await api.get('/me', {
-          headers:{
-            'Authorization': `Bearer ${storageUser}`
-          }
-        })
-        .catch(()=>{
-          setUser(null);
-        })
+      if (storageUser) {
+        const response = await api
+          .get('/me', {
+            headers: {
+              Authorization: `Bearer ${storageUser}`,
+            },
+          })
+          .catch(() => {
+            setUser(null);
+          });
 
         api.defaults.headers['Authorization'] = `Bearer ${storageUser}`;
         setUser(response.data);
         setLoading(false);
-
       }
 
       setLoading(false);
-
     }
 
     loadStorage();
-  }, [])
+  }, []);
 
-
-  async function signUp(email, password, nome){
+  async function signUp(email, password, nome) {
     setLoadingAuth(true);
 
-    try{
+    try {
       const response = await api.post('/user', {
-       nome: nome,
-       senha: password,
-       email: email,
-      })
+        nome: nome,
+        senha: password,
+        email: email,
+      });
       setLoadingAuth(false);
 
       navigation.goBack();
-
-
-    }catch(err){
-      console.log("ERRO AO CADASTRAR", err);
+    } catch (err) {
+      console.log('ERRO AO CADASTRAR', err);
       setLoadingAuth(false);
     }
   }
 
-  async function signIn(email, password){
+  async function signIn(email, password) {
     setLoadingAuth(true);
 
-    try{
+    try {
       const response = await api.post('/session', {
         email: email,
-        senha: password
-      })
+        senha: password,
+      });
 
-      const { id, name, token } = response.data;
+      const { id, nome, imagem, token } = response.data;
 
       const data = {
         id,
-        name,
+        nome,
         token,
         email,
       };
@@ -88,33 +82,44 @@ function AuthProvider({ children }){
 
       setUser({
         id,
-        name,
+        nome,
         email,
-      })
+        imagem
+      });
 
       setLoadingAuth(false);
-
-    }catch(err){
-      console.log("ERRO AO LOGAR ", err.response?.data);
+    } catch (err) {
+      console.log('ERRO AO LOGAR ', err.response?.data);
       setLoadingAuth(false);
     }
-
   }
 
   async function signOut() {
-    await AsyncStorage.clear()
-    .then(() => {
+    await AsyncStorage.clear().then(() => {
       setUser(null);
-    })
+    });
   }
 
+  function updateUser(newData) {
+    setUser(prev => ({ ...prev, ...newData }));
+  }
 
-  return(
-    <AuthContext.Provider value={{ signed: !!user, user, signUp, signIn, signOut, loadingAuth, loading }}>
+  return (
+    <AuthContext.Provider
+      value={{
+        signed: !!user,
+        user,
+        signUp,
+        signIn,
+        signOut,
+        updateUser,
+        loadingAuth,
+        loading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
-  )
+  );
 }
 
 export default AuthProvider;
-

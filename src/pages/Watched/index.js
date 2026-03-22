@@ -173,14 +173,14 @@ function Carousel({ data }) {
 export default function Home() {
   const { user } = useContext(AuthContext);
   const navigation = useNavigation();
-  const initials = user?.name?.[0]?.toUpperCase() || '?';
+  const initials = user?.nome?.[0]?.toUpperCase() || '?';
 
   return (
     <Background>
       <Header>
         <HeaderGreeting>
           <HeaderSubtitle>Bem-vindo de volta</HeaderSubtitle>
-          <HeaderTitle>{user.name}</HeaderTitle>
+          <HeaderTitle>{user.nome}</HeaderTitle>
         </HeaderGreeting>
 
         <HeaderNav>

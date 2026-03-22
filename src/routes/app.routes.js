@@ -6,6 +6,8 @@ import Profile from '../pages/Profile';
 import Serie from '../pages/Serie';
 import Watched from '../pages/Watched';
 import MyList from '../pages/MyList';
+import AddGenero from '../pages/AddGenero';
+import AddSerie from '../pages/AddSerie';
 
 const AppStack = createNativeStackNavigator();
 
@@ -43,6 +45,20 @@ function AppRoutes(){
             <AppStack.Screen
                 name="MyList"
                 component={MyList}
+                options={{
+                headerShown: false,
+                }}                
+            />
+            <AppStack.Screen
+                name="AddGenero"
+                component={AddGenero}
+                options={{
+                headerShown: false,
+                }}                
+            />
+            <AppStack.Screen
+                name="AddSerie"
+                component={AddSerie}
                 options={{
                 headerShown: false,
                 }}                

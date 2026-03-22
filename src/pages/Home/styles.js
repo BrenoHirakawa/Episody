@@ -1,9 +1,9 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 // ─── Layout base ──────────────────────────────────────────────
 export const Background = styled.View`
   flex: 1;
-  background-color: #0B0B0F;
+  background-color: #0b0b0f;
 `;
 
 export const Container = styled.View`
@@ -16,8 +16,8 @@ export const Header = styled.View`
   background-color: #13131a;
   padding: 20px;
   border-bottom-width: 1px;
-  border-bottom-color: #2A2A35;
-  flex-direction: row; 
+  border-bottom-color: #2a2a35;
+  flex-direction: row;
   justify-content: space-between;
 `;
 
@@ -39,7 +39,7 @@ export const NavButton = styled.TouchableOpacity`
 export const NavIcon = styled.Image`
   width: 22px;
   height: 22px;
-  tint-color: #A0A0B2;
+  tint-color: #a0a0b2;
 `;
 
 // Avatar circular
@@ -61,24 +61,24 @@ export const AvatarFallback = styled.View`
   width: 36px;
   height: 36px;
   border-radius: 18px;
-  background-color: #7B2CBF;
+  background-color: #7b2cbf;
   align-items: center;
   justify-content: center;
 `;
 
 export const AvatarFallbackText = styled.Text`
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 15px;
   font-weight: 700;
 `;
 
 // Saudação abaixo da nav
 export const HeaderGreeting = styled.View`
-    flex:1
+  flex: 1;
 `;
 
 export const HeaderSubtitle = styled.Text`
-  color: #A0A0B2;
+  color: #a0a0b2;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -86,14 +86,14 @@ export const HeaderSubtitle = styled.Text`
 `;
 
 export const HeaderTitle = styled.Text`
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 26px;
   font-weight: 700;
 `;
 
 // ─── Section ──────────────────────────────────────────────────
 export const SectionLabel = styled.Text`
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 16px;
@@ -117,7 +117,7 @@ export const ArrowButton = styled.TouchableOpacity`
 `;
 
 export const ArrowText = styled.Text`
-  color: ${({ disabled }) => disabled ? '#3a3a4a' : '#F5F5F5'};
+  color: ${({ disabled }) => (disabled ? '#3a3a4a' : '#F5F5F5')};
   font-size: 26px;
   font-weight: 300;
   line-height: 30px;
@@ -125,12 +125,12 @@ export const ArrowText = styled.Text`
 `;
 
 export const ArrowImage = styled.Image`
-    height: 30px;
-    width: 30px;
+  height: 30px;
+  width: 30px;
 `;
 
 // ─── Card da série ────────────────────────────────────────────
-export const SeriesCard = styled.View`
+export const SeriesCard = styled.TouchableOpacity`
   width: 90px;
   margin-right: 22px;
   position: relative;
@@ -140,12 +140,12 @@ export const SeriesCover = styled.View`
   width: 90px;
   height: 112px;
   border-radius: 2px;
-  background-color: #1C1C24;
+  background-color: #1c1c24;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border-width: 1px;
-  border-color: #2A2A35;
+  border-color: #2a2a35;
 `;
 
 export const SeriesBadge = styled.View`
@@ -158,26 +158,25 @@ export const SeriesBadge = styled.View`
 `;
 
 export const SeriesBadgeText = styled.Text`
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.5px;
 `;
 
 export const SeriesTitle = styled.Text`
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 13px;
   font-weight: 600;
   margin-top: 8px;
 `;
 
 export const SeriesEpisodes = styled.Text`
-  color: #A0A0B2;
+  color: #a0a0b2;
   font-size: 11px;
   font-weight: 400;
   margin-top: 2px;
 `;
-
 
 // ─── Empty State ──────────────────────────────────────────────
 export const EmptyState = styled.View`
@@ -192,13 +191,13 @@ export const EmptyIcon = styled.Text`
 `;
 
 export const EmptyText = styled.Text`
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 18px;
   font-weight: 600;
 `;
 
 export const EmptySubText = styled.Text`
-  color: #A0A0B2;
+  color: #a0a0b2;
   font-size: 14px;
   font-weight: 300;
   text-align: center;
@@ -206,25 +205,52 @@ export const EmptySubText = styled.Text`
 `;
 
 export const ButtonsWrapper = styled.View`
-    flex-direction: row;
-    gap: 10px;
-    padding: 15px
+  flex-direction: row;
+  gap: 10px;
+  padding: 15px;
 `;
 
 export const DropDown = styled.TouchableOpacity`
   border-width: 1px;
-  border-color: #7B2CBF;
+  border-color: #7b2cbf;
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
 `;
 
 export const ButtonList = styled.TouchableOpacity`
   border-width: 1px;
-  border-color: #7B2CBF;
+  border-color: #7b2cbf;
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
 `;
 
 export const ButtonText = styled.Text`
-  color: #A0A0B2;
+  color: #a0a0b2;
+`;
+
+export const AddGeneroButton = styled.TouchableOpacity`
+  border-radius: 100px;
+  background-color: #7b2cbf;
+  width: 75px;
+  height: 75px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const AddGeneroText = styled.Text`
+  color: #d9d9df;
+  font-weight: 100px;
+  font-size: 50px;
+`;
+
+export const AddButtonWrapper = styled.View`
+  position: absolute;
+  bottom: 32px;
+  right: 24px;
+`;
+
+export const SubmitNewSeries = styled.TouchableOpacity`
+  background-color: #7b2cbf;
+  width: 75px;
+  height: 75px;
 `;
