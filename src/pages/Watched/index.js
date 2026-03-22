@@ -39,13 +39,15 @@ export default function Watched() {
   useFocusEffect(
     useCallback(() => {
       loadAssistidos();
+      return () => {};
     }, []),
   );
 
   async function loadAssistidos() {
     try {
       const response = await api.get('/userSerie/assistidos');
-      setSeries(response.data);
+      const data = Array.isArray(response.data) ? response.data : [response.data];
+      setSeries(data);
     } catch (err) {
       console.log('ERRO:', err.response?.data);
     }
@@ -73,7 +75,9 @@ export default function Watched() {
           <AvatarButton onPress={() => navigation.navigate('Profile')}>
             {user?.imagem ? (
               <Image
-                source={{ uri: `http://192.168.0.18:3000/files/${user.imagem}` }}
+                source={{
+                  uri: `http://192.168.0.18:3000/files/${user.imagem}`,
+                }}
                 style={{ width: '100%', height: '100%', borderRadius: 18 }}
               />
             ) : (
@@ -98,12 +102,16 @@ export default function Watched() {
               {series.map((item, i) => (
                 <GridCard
                   key={item.serie?.id || i}
-                  onPress={() => navigation.navigate('SerieDetail', { serie: item.serie })}
+                  onPress={() =>
+                    navigation.navigate('Serie', { serie: item.serie })
+                  }
                 >
                   <GridCover>
                     {item.serie?.imagem ? (
                       <GridCoverImage
-                        source={{ uri: `http://192.168.0.18:3000/files/${item.serie.imagem}` }}
+                        source={{
+                          uri: `http://192.168.0.18:3000/files/${item.serie.imagem}`,
+                        }}
                         resizeMode="cover"
                       />
                     ) : (

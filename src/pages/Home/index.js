@@ -224,8 +224,8 @@ export default function Home() {
           <ButtonList onPress={() => navigation.navigate('Watched')}>
             <ButtonText>Assistidos</ButtonText>
           </ButtonList>
-          <ButtonList>
-            <ButtonText onPress={() => navigation.navigate('MyList')}>Minha lista</ButtonText>
+          <ButtonList onPress={() => navigation.navigate('MyList')}>
+            <ButtonText>Minha lista</ButtonText>
           </ButtonList>
         </ButtonsWrapper>
 

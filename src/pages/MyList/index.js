@@ -30,7 +30,7 @@ import {
   EmptyText,
 } from './styles';
 
-export default function MyList() {
+export default function Watched() {
   const navigation = useNavigation();
   const { user } = useContext(AuthContext);
   const initials = user?.nome?.[0]?.toUpperCase() || '?';
@@ -39,13 +39,15 @@ export default function MyList() {
   useFocusEffect(
     useCallback(() => {
       loadAssistidos();
+      return () => {};
     }, []),
   );
 
   async function loadAssistidos() {
     try {
       const response = await api.get('/userSerie/assistidos');
-      setSeries(response.data);
+      const data = Array.isArray(response.data) ? response.data : [response.data];
+      setSeries(data);
     } catch (err) {
       console.log('ERRO:', err.response?.data);
     }
@@ -73,7 +75,9 @@ export default function MyList() {
           <AvatarButton onPress={() => navigation.navigate('Profile')}>
             {user?.imagem ? (
               <Image
-                source={{ uri: `http://192.168.0.18:3000/files/${user.imagem}` }}
+                source={{
+                  uri: `http://192.168.0.18:3000/files/${user.imagem}`,
+                }}
                 style={{ width: '100%', height: '100%', borderRadius: 18 }}
               />
             ) : (
@@ -87,23 +91,27 @@ export default function MyList() {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <Container>
-          <SectionLabel>Favoritos</SectionLabel>
+          <SectionLabel>Sua lista</SectionLabel>
 
           {series.length === 0 ? (
             <EmptyWrapper>
-              <EmptyText>Nenhuma série assistida ainda 📺</EmptyText>
+              <EmptyText>Nenhuma série sua lista ainda 📺</EmptyText>
             </EmptyWrapper>
           ) : (
             <GridWrapper>
               {series.map((item, i) => (
                 <GridCard
                   key={item.serie?.id || i}
-                  onPress={() => navigation.navigate('SerieDetail', { serie: item.serie })}
+                  onPress={() =>
+                    navigation.navigate('Serie', { serie: item.serie })
+                  }
                 >
                   <GridCover>
                     {item.serie?.imagem ? (
                       <GridCoverImage
-                        source={{ uri: `http://192.168.0.18:3000/files/${item.serie.imagem}` }}
+                        source={{
+                          uri: `http://192.168.0.18:3000/files/${item.serie.imagem}`,
+                        }}
                         resizeMode="cover"
                       />
                     ) : (
