@@ -30,7 +30,7 @@ import {
   EmptyText,
 } from './styles';
 
-export default function Watched() {
+export default function MyList() {
   const navigation = useNavigation();
   const { user } = useContext(AuthContext);
   const initials = user?.nome?.[0]?.toUpperCase() || '?';
@@ -38,14 +38,14 @@ export default function Watched() {
 
   useFocusEffect(
     useCallback(() => {
-      loadAssistidos();
+      loadFavoritos();
       return () => {};
     }, []),
   );
 
-  async function loadAssistidos() {
+  async function loadFavoritos() {
     try {
-      const response = await api.get('/userSerie/assistidos');
+      const response = await api.get('/userSerie/favoritos');
       const data = Array.isArray(response.data) ? response.data : [response.data];
       setSeries(data);
     } catch (err) {

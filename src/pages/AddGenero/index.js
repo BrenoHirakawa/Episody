@@ -68,29 +68,39 @@ export default function AddGenero() {
   return (
     <Background>
       <Header>
-        <HeaderGreeting>
-          <HeaderSubtitle>Bem-vindo de volta</HeaderSubtitle>
-          <HeaderTitle>{user?.nome}</HeaderTitle>
-        </HeaderGreeting>
-
-        <HeaderNav>
-          <NavButton onPress={() => navigation.navigate('Home')}>
-            <NavIcon source={require('../../assets/icons/home-icon.png')} />
-          </NavButton>
-          <NavButton onPress={() => navigation.navigate('Search')}>
-            <NavIcon source={require('../../assets/icons/search-icon.png')} />
-          </NavButton>
-          <AvatarButton onPress={() => navigation.navigate('Profile')}>
-            {user?.avatar ? (
-              <Avatar source={{ uri: user.avatar }} />
-            ) : (
-              <AvatarFallback>
-                <AvatarFallbackText>{initials}</AvatarFallbackText>
-              </AvatarFallback>
-            )}
-          </AvatarButton>
-        </HeaderNav>
-      </Header>
+              <HeaderGreeting>
+                <HeaderSubtitle>Bem-vindo de volta</HeaderSubtitle>
+                <HeaderTitle>{user.nome}</HeaderTitle>
+              </HeaderGreeting>
+      
+              <HeaderNav>
+                <NavButton onPress={() => navigation.navigate('Home')}>
+                  <NavIcon source={require('../../assets/icons/home-icon.png')} />
+                </NavButton>
+                <NavButton onPress={() => navigation.navigate('Search')}>
+                  <NavIcon source={require('../../assets/icons/search-icon.png')} />
+                </NavButton>
+                <AvatarButton onPress={() => navigation.navigate('Profile')}>
+                  {user?.avatar? (
+                    <Image
+                      source={{ uri: pfp.uri }}
+                      style={{ width: '100%', height: '100%' }}
+                    />
+                  ) : user?.imagem ? (
+                    <Image
+                      source={{
+                        uri: `http://192.168.0.18:3000/files/${user.imagem}`,
+                      }}
+                      style={{ width: '100%', height: '100%' }}
+                    />
+                  ) : (
+                    <AvatarFallback>
+                      <AvatarFallbackText>{initials}</AvatarFallbackText>
+                    </AvatarFallback>
+                  )}
+                </AvatarButton>
+              </HeaderNav>
+            </Header>
 
       <Container
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}

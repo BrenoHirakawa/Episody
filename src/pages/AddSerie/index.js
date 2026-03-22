@@ -69,7 +69,7 @@ export default function AddSerie() {
       formData.append('nome', nome);
       formData.append('sinopse', sinopse);
       formData.append('ano', String(parseInt(ano)));
-      formData.append('genero_id', genero_id); 
+      formData.append('genero_id', genero_id);
 
       if (cover) {
         formData.append('file', {
@@ -84,7 +84,6 @@ export default function AddSerie() {
       });
 
       navigation.navigate('Home');
-
     } catch (err) {
       console.log('ERRO:', JSON.stringify(err.response?.data));
       console.log('ERRO:', err.response?.data);
@@ -104,7 +103,7 @@ export default function AddSerie() {
       <Header>
         <HeaderGreeting>
           <HeaderSubtitle>Bem-vindo de volta</HeaderSubtitle>
-          <HeaderTitle>{user?.nome}</HeaderTitle>
+          <HeaderTitle>{user.nome}</HeaderTitle>
         </HeaderGreeting>
 
         <HeaderNav>
@@ -116,7 +115,17 @@ export default function AddSerie() {
           </NavButton>
           <AvatarButton onPress={() => navigation.navigate('Profile')}>
             {user?.avatar ? (
-              <Avatar source={{ uri: user.avatar }} />
+              <Image
+                source={{ uri: pfp.uri }}
+                style={{ width: '100%', height: '100%' }}
+              />
+            ) : user?.imagem ? (
+              <Image
+                source={{
+                  uri: `http://192.168.0.18:3000/files/${user.imagem}`,
+                }}
+                style={{ width: '100%', height: '100%' }}
+              />
             ) : (
               <AvatarFallback>
                 <AvatarFallbackText>{initials}</AvatarFallbackText>
