@@ -155,11 +155,7 @@ export const SubmitButton = styled.TouchableOpacity`
   padding: 10px;
 `;
 
-export const SubmitText = styled.Text`
-  color: #f5f5f5;
-  font-weight: 600;
-  font-size: 24px;
-`;
+
 
 export const TitleGroup = styled.View`
   align-items: center;
@@ -181,7 +177,19 @@ export const Icons = styled.Image`
 `;
 
 export const SubmitImage = styled.TouchableOpacity`
-  height: 100px;
-  width: 100px;
-  background-color: #7b2cbf;
+  width: 90px;
+  height: 112px;
+  border-radius: 2px;
+  background-color: #1c1c24;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-width: 1px;
+  border-color: #2a2a35;
+`;
+
+export const SubmitText = styled.Text`
+  color: #f5f5f5;
+  font-weight: 600;
+  font-size: 15px;
 `;

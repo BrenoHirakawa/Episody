@@ -76,7 +76,9 @@ function Carousel({ data, genero_id }) {
       );
     }
     return (
-      <SeriesCard>
+      <SeriesCard
+        onPress={() => navigation.navigate('Serie', { serie: item })}
+      >
         <SeriesCover style={{ backgroundColor: PLACEHOLDER_COLORS[i % 5] }}>
           {item.imagem ? (
             <Image
@@ -185,7 +187,7 @@ export default function Home() {
       <Header>
         <HeaderGreeting>
           <HeaderSubtitle>Bem-vindo de volta</HeaderSubtitle>
-          <HeaderTitle>{user?.nome}</HeaderTitle>
+          <HeaderTitle>{user.nome}</HeaderTitle>
         </HeaderGreeting>
 
         <HeaderNav>
@@ -219,14 +221,11 @@ export default function Home() {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <ButtonsWrapper>
-          <DropDown>
-            <ButtonText>Categorias</ButtonText>
-          </DropDown>
           <ButtonList onPress={() => navigation.navigate('Watched')}>
             <ButtonText>Assistidos</ButtonText>
           </ButtonList>
           <ButtonList>
-            <ButtonText>Minha lista</ButtonText>
+            <ButtonText onPress={() => navigation.navigate('MyList')}>Minha lista</ButtonText>
           </ButtonList>
         </ButtonsWrapper>
 

@@ -67,7 +67,7 @@ function AuthProvider({ children }) {
         senha: password,
       });
 
-      const { id, nome, imagem, token } = response.data;
+      const { id, name: nome, imagem, token } = response.data;
 
       const data = {
         id,
