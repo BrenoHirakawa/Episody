@@ -2,32 +2,23 @@ import React, { useRef, useContext, useState } from 'react';
 import {
   Platform,
   ActivityIndicator,
-  FlatList,
-  Text,
-  ScrollView,
+  Image
 } from 'react-native';
 import api from '../../services/api';
 
 import {
   Background,
   Container,
-  Logo,
   AreaInput,
   Input,
-  Title,
   MiddleText,
   SmallText,
   SubmitButton,
   SubmitText,
-  Link,
-  LinkText,
-  LinkGroup,
   TextGroup,
   InputGroup,
-  TitleGroup,
   Header,
   AvatarButton,
-  Avatar,
   AvatarFallback,
   AvatarFallbackText,
   HeaderGreeting,
