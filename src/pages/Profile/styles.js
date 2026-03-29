@@ -8,9 +8,8 @@ export const Background = styled.View`
 
 export const Container = styled.View`
   flex: 1;
-  padding: 24px 0;
+  padding: 24px 20px;
   align-items: center;
-  justify-content: space-between;
 `;
 
 //  Header Invisível
@@ -42,6 +41,7 @@ export const UserWrapper = styled.View`
   align-items: center;
   justify-content: center;
   gap: 12px;
+  margin-top: 40px;
 `;
 
 export const FotoCircle = styled.Image`
@@ -58,10 +58,10 @@ export const NomeUser = styled.Text`
     font-size: 24px;
 `;
 
-
 // Opções 
 export const OptionsWrapper = styled.View`
   width: 80%;
+  margin-top: 40px;
   align-items: left;
   justify-content: center;
 `;
@@ -87,6 +87,7 @@ export const ExitButton = styled.TouchableOpacity`
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 `;
 
 export const ExitButtonText = styled.Text`
@@ -100,7 +101,7 @@ export const ExitButtonText = styled.Text`
 export const AvatarButton = styled.TouchableOpacity`
   height: 160px;
   width: 160px;
-  border-radius: 18px;
+  border-radius: 80px;
   overflow: hidden;
 `;
 

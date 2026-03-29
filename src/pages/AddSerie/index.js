@@ -2,9 +2,6 @@ import React, { useRef, useContext, useState } from 'react';
 import {
   Platform,
   ActivityIndicator,
-  FlatList,
-  Text,
-  ScrollView,
   Image,
 } from 'react-native';
 import api from '../../services/api';
@@ -12,23 +9,16 @@ import api from '../../services/api';
 import {
   Background,
   Container,
-  Logo,
   AreaInput,
   Input,
-  Title,
   MiddleText,
   SmallText,
   SubmitButton,
   SubmitText,
-  Link,
-  LinkText,
-  LinkGroup,
   TextGroup,
   InputGroup,
-  TitleGroup,
   Header,
   AvatarButton,
-  Avatar,
   AvatarFallback,
   AvatarFallbackText,
   HeaderGreeting,
@@ -37,7 +27,6 @@ import {
   HeaderNav,
   NavButton,
   NavIcon,
-  DescriptionInput,
   SubmitImage,
 } from './styles';
 
@@ -56,7 +45,7 @@ export default function AddSerie() {
   const route = useRoute();
   const { genero_id } = route.params;
 
-  const [descricao, setDescricao] = useState('');
+  // const [descricao, setDescricao] = useState('');
   const [cover, setCover] = useState('');
 
   const { user } = useContext(AuthContext);
@@ -110,19 +99,19 @@ export default function AddSerie() {
           <NavButton onPress={() => navigation.navigate('Home')}>
             <NavIcon source={require('../../assets/icons/home-icon.png')} />
           </NavButton>
-          <NavButton onPress={() => navigation.navigate('Search')}>
+          {/* <NavButton onPress={() => navigation.navigate('Search')}>
             <NavIcon source={require('../../assets/icons/search-icon.png')} />
-          </NavButton>
+          </NavButton> */}
           <AvatarButton onPress={() => navigation.navigate('Profile')}>
             {user?.avatar ? (
               <Image
-                source={{ uri: pfp.uri }}
+                source={{ uri: user.avatar }}
                 style={{ width: '100%', height: '100%' }}
               />
             ) : user?.imagem ? (
               <Image
                 source={{
-                  uri: `http://192.168.0.18:3000/files/${user.imagem}`,
+                  uri: `http://10.0.2.2:3000/files/${user.imagem}`,
                 }}
                 style={{ width: '100%', height: '100%' }}
               />

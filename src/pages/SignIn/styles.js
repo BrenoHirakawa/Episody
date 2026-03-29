@@ -8,7 +8,7 @@ export const Background = styled.View`
 
 export const Container = styled.KeyboardAvoidingView`
   flex: 1;
-  padding: 40px 0;
+  padding: 40px 20px;
   justify-content: space-between;
   align-items: center;
 `;
@@ -40,11 +40,13 @@ export const Logo = styled.Image`
 export const AreaInput = styled.View`
     flex-direction: row;
     text-color: #ffffff;
+    width: 100%;
+    align-items: center;
 `;
 
 export const Input = styled.TextInput`
     background-color: #1C1C24;
-    width: 312px;
+    width: 90%;
     height: 52px;
     border-radius: 10px;
     border-color: #2a2a35;
@@ -55,7 +57,7 @@ export const Input = styled.TextInput`
 // Botão de Login
 export const SubmitButton = styled.TouchableOpacity`
     background-color: #7B2CBF;
-    width: 207px;
+    width: 70%;
     height: 56px; 
     border-radius: 20px;
     justify-content: center;

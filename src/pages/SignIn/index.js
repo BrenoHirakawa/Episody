@@ -40,8 +40,8 @@ export default function SignIn() {
   return (
     <Background>
       <Container
-        behavior={Platform.OS === 'ios' ? 'padding' : ''}
-        enabled
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
       >
 
         <TitleGroup>
@@ -53,7 +53,6 @@ export default function SignIn() {
         </TitleGroup>
 
 
-
         <TextGroup>
           <MiddleText>Entre com sua conta!</MiddleText>
           <SmallText>Sua próxima maratona começa aqui</SmallText>
@@ -62,7 +61,7 @@ export default function SignIn() {
         <InputGroup>
 
           <AreaInput>
-            <Input placeholder="E-mail/ Nome de usuário"
+            <Input placeholder="E-mail"
             placeholderTextColor="#F5F5F5"
             value={email}
             onChangeText={(text) => setEmail(text)}

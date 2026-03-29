@@ -194,9 +194,9 @@ export default function Home() {
           <NavButton onPress={() => navigation.navigate('Home')}>
             <NavIcon source={require('../../assets/icons/home-icon.png')} />
           </NavButton>
-          <NavButton onPress={() => navigation.navigate('Search')}>
+          {/* <NavButton onPress={() => navigation.navigate('Search')}>
             <NavIcon source={require('../../assets/icons/search-icon.png')} />
-          </NavButton>
+          </NavButton> */}
           <AvatarButton onPress={() => navigation.navigate('Profile')}>
             {user?.avatar? (
               <Image

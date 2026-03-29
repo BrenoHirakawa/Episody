@@ -34,7 +34,6 @@ export default function Profile() {
   const { user, signOut, updateUser } = useContext(AuthContext);
   const initials = user?.nome?.[0]?.toUpperCase() || '?';
   const [pfp, setPfp] = useState('');
-  const formData = new FormData();
 
   async function pickImage() {
     launchImageLibrary({ mediaType: 'photo', quality: 0.8 }, async response => {
@@ -77,7 +76,7 @@ export default function Profile() {
 
       <Container>
         <UserWrapper>
-          <AvatarButton onPress={() => pickImage()}>
+          <AvatarButton onPress={() => {console.log('aqui');pickImage();}}>
             {pfp ? (
               <Image
                 source={{ uri: pfp.uri }}
